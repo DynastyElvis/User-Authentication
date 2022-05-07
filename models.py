@@ -10,4 +10,9 @@ class User(db.Model):
 
     def __repr__(self):
         return f'User {self.username}'
-    
+    #....
+@manager.shell
+    def make_shell_context():
+    return dict(app = app,db = db,User = User )
+if __name__ == '__main__':
+    manager.run()
